@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocacy for the Unhoused | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --camp-orange: #C8522D;
+            --camp-cream: #F9F6F0;
+            --camp-dark: #1A1311;
+            --camp-teal: #2D5A68;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--camp-cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--camp-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 100px 20px 60px;
+            text-align: center;
+        }
+
+        .logo-box {
+            display: inline-block;
+            border: 5px solid var(--camp-dark);
+            padding: 40px 60px;
+            background: white;
+            box-shadow: 15px 15px 0px var(--camp-orange);
+            margin-bottom: 20px;
+        }
+
+        .logo-box h1 {
+            font-family: 'Abril Fatface', serif;
+            font-size: clamp(2.2rem, 7vw, 4rem);
+            color: var(--camp-teal);
+            margin: 0;
+        }
+
+        .tagline {
+            font-family: 'Abril Fatface', serif;
+            font-size: 1.8rem;
+            color: var(--camp-orange);
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-section {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 0 25px;
+            text-align: left; /* Matched to your screenshot */
+        }
+
+        .about-section h2 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            display: inline-block;
+            padding-right: 50px;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- IMPACT SECTION --- */
+        .impact-card {
+            background: white;
+            border: 3px solid var(--camp-dark);
+            padding: 40px;
+            margin: 60px auto;
+            max-width: 1000px;
+            box-shadow: 12px 12px 0px var(--camp-dark);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .impact-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .impact-text h3 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 2.2rem;
+            margin: 5px 0;
+        }
+
+        .impact-visual {
+            flex: 1.5;
+            min-width: 350px;
+        }
+
+        .impact-visual img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+        }
+
+        /* --- NAVIGATION GRID --- */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 60px auto 100px;
+            padding: 0 20px;
+        }
+
+        .nav-card {
+            background: white;
+            border: 2px solid var(--camp-dark
