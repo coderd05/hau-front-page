@@ -21,7 +21,7 @@
             line-height: 1.8;
         }
 
-        /* --- SECTION 1: THE HERO STAGE --- */
+        /* --- HERO SECTION --- */
         .hero-stage {
             height: 100vh;
             background-color: var(--camp-cream);
@@ -72,7 +72,7 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* --- CONTENT WRAPPER --- */
+        /* --- CONTENT SECTION --- */
         .scroll-container {
             position: relative;
             z-index: 2;
@@ -103,7 +103,7 @@
             color: var(--camp-dark);
         }
 
-        /* --- SECTION 2: IMPACT SECTION --- */
+        /* --- IMPACT SECTION --- */
         .impact-section {
             background: var(--camp-dark);
             color: white;
@@ -132,52 +132,11 @@
 
         .tracker-iframe {
             width: 100%;
-            height: 450px;
+            height: 480px;
             border: none;
             border-radius: 20px;
             margin-top: 30px;
-            background: white; /* White background inside the card helps the chart colors pop */
-        }
-
-        /* --- SECTION 3: QUICK LINKS SECTION --- */
-        .links-section {
-            background: var(--camp-dark);
-            color: white;
-            padding: 0 10% 120px 10%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 1000px;
-            width: 100%;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 20px;
-            padding: 40px 20px;
-            color: white;
-            font-family: 'Abril Fatface', serif;
-            font-size: 1.8rem;
-            transition: 0.3s;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .nav-item:hover {
-            background: var(--camp-orange);
-            border-color: var(--camp-orange);
-            transform: translateY(-5px);
+            background: white;
         }
 
         .reveal {
@@ -192,7 +151,6 @@
         }
 
         @media (max-width: 800px) {
-            .nav-grid { grid-template-columns: 1fr; }
             .about-card { padding: 30px; }
         }
     </style>
@@ -227,26 +185,6 @@
             </div>
         </section>
 
-        <section class="links-section">
-            <h2 style="font-family: 'Abril Fatface', serif; font-size: 2.5rem; margin-bottom: 50px; color: white;">Quick Links</h2>
-            <div class="nav-grid reveal">
-                <a href="https://sites.google.com/view/advocacy-for-the-unhoused/transparency" target="_top" class="nav-item">Transparency</a>
-                <a href="https://sites.google.com/view/advocacy-for-the-unhoused/our-team" target="_top" class="nav-item">Our Team</a>
-                <a href="https://sites.google.com/view/advocacy-for-the-unhoused/portfolio" target="_top" class="nav-item">Portfolio</a>
-                <a href="https://sites.google.com/view/advocacy-for-the-unhoused/start-a-branch" target="_top" class="nav-item">Start a Branch</a>
-                <a href="https://sites.google.com/view/advocacy-for-the-unhoused/donate" target="_top" class="nav-item">Donate</a>
-                <a href="https://sites.google.com/view/advocacy-for-the-unhoused/blog" target="_top" class="nav-item">Blog</a>
-            </div>
-
-            <div class="reveal" style="text-align: center; margin-top: 100px;">
-                <p style="font-family: 'Abril Fatface', serif; font-size: 1.5rem; margin-bottom: 30px; color: white;">Join the Movement</p>
-                <div style="display: flex; justify-content: center; gap: 30px;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" style="width: 35px; filter: invert(1);" alt="TikTok">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" style="width: 35px; filter: invert(1);" alt="Instagram">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="width: 35px; filter: invert(1);" alt="YouTube">
-                </div>
-            </div>
-        </section>
     </div>
 
     <script>
@@ -262,14 +200,6 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
-
-        // Navigation fix for Google Sites
-        document.querySelectorAll('.nav-item').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.top.location.href = this.getAttribute('href');
-            });
-        });
     </script>
 </body>
 </html>
