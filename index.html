@@ -18,7 +18,7 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--camp-dark);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         /* --- SECTION 1: THE HERO STAGE --- */
@@ -97,8 +97,9 @@
 
         .about-card h2 {
             font-family: 'Abril Fatface', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-top: 0;
+            margin-bottom: 30px;
             color: var(--camp-dark);
         }
 
@@ -118,7 +119,7 @@
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 40px;
             padding: 60px;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
         }
 
@@ -127,6 +128,15 @@
             font-size: clamp(3rem, 8vw, 5.5rem);
             margin: 10px 0;
             color: var(--camp-orange);
+        }
+
+        .tracker-iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 20px;
+            margin-top: 30px;
+            background: transparent;
         }
 
         /* --- SECTION 3: QUICK LINKS SECTION --- */
@@ -161,6 +171,7 @@
             font-size: 1.8rem;
             transition: 0.3s;
             text-align: center;
+            cursor: pointer;
         }
 
         .nav-item:hover {
@@ -182,6 +193,7 @@
 
         @media (max-width: 800px) {
             .nav-grid { grid-template-columns: 1fr; }
+            .about-card { padding: 30px; }
         }
     </style>
 </head>
@@ -199,7 +211,9 @@
             <div class="about-card reveal">
                 <h2>About</h2>
                 <p>Advocacy for the Unhoused is a federally recognized 501(c)(3) nonprofit organization and student-led initiative dedicated to supporting unhoused individuals across Massachusetts by donating supplies and building awareness about the problem. Founded in 2025 as a small school club, we have grown into a federally-recognized organization with multiple branches and a team of over 50 committed volunteers who believe that housing should be accessible to everyone.</p>
-                <p>In our first year, we raised more than <strong>$1,000</strong>, which we used to buy essential supplies such as blankets, toiletries, and hygiene products. <strong>Every dollar we raise goes directly toward purchasing these items.</strong></p>
+                <p>We recognize that homelessness is rarely the result of a single event. Rising rent, inflation, medical bills, and the general cost of living continue to climb while wages remain stagnant. Many people are pushed into impossible situations where even working multiple jobs is not enough to stay housed. Our work is grounded in the belief that no one should face these pressures alone, and that communities have a responsibility to support those most affected by economic instability.</p>
+                <p>In our first year, we raised more than $1,000, which we used to buy essential supplies such as blankets, toiletries, and hygiene products. <strong>Every dollar we raise goes directly toward purchasing these items.</strong> All operational costs are covered separately, allowing us to maintain complete financial transparency. To strengthen trust with our donors, we built a custom web app that uses Unique Donation Identifiers to show exactly how each contribution is used. We also publish detailed breakdowns of funds raised and supplies distributed, because accountability is one of our core values. For all financial info, please visit our transparency page.</p>
+                <p>Our mission is simple: bring people together to support those who need it most, while empowering the next generation of leaders to take action in their communities. Through Advocacy, Awareness, and Action, we aim to make homelessness a problem of the past.</p>
             </div>
         </section>
 
@@ -207,13 +221,14 @@
             <div class="stat-card reveal">
                 <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; opacity: 0.6;">Total Impact 2026</p>
                 <h3>$579.00</h3>
-                <p style="margin-bottom: 40px;">(Funds raised as of March 4, 2026)</p>
-                <img src="https://via.placeholder.com/700x250?text=Revenue+Flow+Diagram" style="width: 100%; border-radius: 20px; opacity: 0.8;" alt="Transparency Diagram">
+                <p>(Funds raised as of March 4, 2026)</p>
+                
+                <iframe src="https://script.google.com/macros/s/AKfycbwgq25Ryj_lcIBs3Hw2X0nzqd4n89UI929ABeWSHZOZ/exec" class="tracker-iframe"></iframe>
             </div>
         </section>
 
         <section class="links-section">
-            <h2 style="font-family: 'Abril Fatface', serif; font-size: 2.5rem; margin-bottom: 50px;">Quick Links</h2>
+            <h2 style="font-family: 'Abril Fatface', serif; font-size: 2.5rem; margin-bottom: 50px; color: white;">Quick Links</h2>
             <div class="nav-grid reveal">
                 <a href="https://sites.google.com/view/advocacy-for-the-unhoused/transparency" target="_top" class="nav-item">Transparency</a>
                 <a href="https://sites.google.com/view/advocacy-for-the-unhoused/our-team" target="_top" class="nav-item">Our Team</a>
@@ -224,7 +239,7 @@
             </div>
 
             <div class="reveal" style="text-align: center; margin-top: 100px;">
-                <p style="font-family: 'Abril Fatface', serif; font-size: 1.5rem; margin-bottom: 30px;">Join the Movement</p>
+                <p style="font-family: 'Abril Fatface', serif; font-size: 1.5rem; margin-bottom: 30px; color: white;">Join the Movement</p>
                 <div style="display: flex; justify-content: center; gap: 30px;">
                     <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" style="width: 35px; filter: invert(1);" alt="TikTok">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" style="width: 35px; filter: invert(1);" alt="Instagram">
@@ -232,7 +247,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 
     <script>
@@ -248,6 +262,14 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
+
+        // Fail-safe Link Logic
+        document.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.top.location.href = this.getAttribute('href');
+            });
+        });
     </script>
 </body>
 </html>
