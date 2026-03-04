@@ -15,192 +15,239 @@
 
         body {
             margin: 0;
-            background-color: var(--camp-cream);
+            background-color: var(--camp-dark);
             font-family: 'Montserrat', sans-serif;
             color: var(--camp-dark);
             overflow-x: hidden;
         }
 
-        /* --- THE SPLIT LAYOUT STYLE --- */
-        .page-wrapper {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* LEFT SIDE (CREAM) */
-        .left-content {
-            flex: 1.1;
-            padding: 80px 6% 100px;
+        /* --- SECTION 1: THE HERO STAGE (SCROLL EFFECT) --- */
+        .hero-stage {
+            height: 100vh;
             background-color: var(--camp-cream);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            padding: 0 20px;
         }
 
-        /* RIGHT SIDE (DARK GRADIENT) */
-        .right-content {
-            flex: 0.9;
-            background: linear-gradient(145deg, #241a18 0%, #1a1311 100%);
-            padding: 80px 5%;
-            color: white;
-            position: relative;
-        }
-
-        /* --- TYPOGRAPHY MATCHED TO SS --- */
-        .sub-header {
-            color: var(--camp-orange);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        h1 {
+        /* MATCHING THE CAMP TITLE STYLE */
+        .hero-stage h1 {
             font-family: 'Abril Fatface', serif;
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            line-height: 0.95;
-            margin: 0 0 30px 0;
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            line-height: 0.9;
+            margin: 0;
             color: var(--camp-dark);
+            max-width: 1000px;
         }
 
-        h1 span {
+        .hero-stage h1 span {
             color: var(--camp-orange);
             font-style: italic;
         }
 
-        .hero-description {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            max-width: 550px;
-            margin-bottom: 40px;
-            color: rgba(26, 19, 17, 0.8);
-        }
-
-        /* --- BUTTON STYLE FROM CAMP SS --- */
-        .btn-container {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .btn-black {
-            background: var(--camp-dark);
-            color: white;
-            padding: 18px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .btn-link {
-            color: var(--camp-dark);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 2px;
-        }
-
-        /* --- RIGHT SIDE CARDS (DASHBOARD) --- */
-        .dashboard-label {
-            color: rgba(255,255,255,0.4);
+        .tagline-sub {
+            font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.75rem;
-            margin-bottom: 40px;
-            display: block;
-        }
-
-        .impact-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 40px;
-            border-radius: 20px;
+            letter-spacing: 5px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--camp-orange);
             margin-bottom: 30px;
         }
 
-        .impact-card h2 {
+        .scroll-hint {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* --- SECTION 2: THE CONTENT SCROLL (SLIDES UP) --- */
+        .scroll-container {
+            position: relative;
+            z-index: 2;
+            margin-top: 0; /* Starts right after hero */
+        }
+
+        .content-block {
+            background: var(--camp-cream);
+            padding: 100px 10%;
+            border-top: 2px solid rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* BOX STYLE FROM START A BRANCH */
+        .about-card {
+            background: white;
+            border: 4px solid var(--camp-dark);
+            padding: 60px;
+            max-width: 900px;
+            box-shadow: 20px 20px 0px var(--camp-orange);
+            margin-bottom: 100px;
+        }
+
+        .about-card h2 {
             font-family: 'Abril Fatface', serif;
-            font-size: 4rem;
+            font-size: 3rem;
+            margin-top: 0;
+            color: var(--camp-dark);
+        }
+
+        /* --- SECTION 3: THE DARK IMPACT DASHBOARD --- */
+        .impact-hub {
+            background: var(--camp-dark);
+            color: white;
+            padding: 120px 10%;
+            min-height: 100vh;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 40px;
+            padding: 60px;
+            text-align: left;
+        }
+
+        .stat-card h3 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 5rem;
             margin: 10px 0;
             color: var(--camp-orange);
         }
 
+        /* BUBBLY NAV GRID */
         .nav-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 15px;
         }
 
         .nav-item {
             border: 1px solid rgba(255,255,255,0.2);
-            padding: 20px;
-            border-radius: 15px;
-            text-decoration: none;
+            border-radius: 20px;
+            padding: 30px;
             color: white;
-            font-weight: 600;
+            text-decoration: none;
+            font-family: 'Abril Fatface', serif;
+            font-size: 1.5rem;
             transition: 0.3s;
+            text-align: center;
         }
 
         .nav-item:hover {
             background: var(--camp-orange);
             border-color: var(--camp-orange);
+            transform: scale(1.02);
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 1024px) {
-            .page-wrapper { flex-direction: column; }
-            .left-content, .right-content { padding: 60px 8%; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .hero-stage h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="page-wrapper">
+    <section class="hero-stage">
+        <span class="tagline-sub">Advocacy | Awareness | Action</span>
+        <h1>Advocacy for the <span>Unhoused</span>, Inc.</h1>
+        <div class="scroll-hint">Scroll to Explore ↓</div>
+    </section>
+
+    <div class="scroll-container">
         
-        <main class="left-content">
-            <span class="sub-header">Advocacy | Awareness | Action</span>
-            
-            <h1>Advocacy for the <span>Unhoused</span>, Inc.</h1>
-            
-            <p class="hero-description">
-                A student-led nonprofit dedicated to supporting unhoused individuals across Massachusetts. 
-                Founded in 2025, we’ve grown into a multi-branch team of 50+ volunteers 
-                committed to direct action and total transparency.
-            </p>
-
-            <div class="btn-container">
-                <a href="#about" class="btn-black">Read Our Mission</a>
-                <a href="/donate" class="btn-link">Ways to Help →</a>
+        <section class="content-block">
+            <div class="about-card reveal">
+                <h2>About</h2>
+                <p>Advocacy for the Unhoused is a federally recognized 501(c)(3) nonprofit organization and student-led initiative dedicated to supporting unhoused individuals across Massachusetts by donating supplies and building awareness about the problem.</p>
+                <p>Founded in 2025 as a small school club, we have grown into a federally-recognized organization with multiple branches and a team of over 50 committed volunteers who believe that housing should be accessible to everyone.</p>
+                <p>In our first year, we raised more than <strong>$1,000</strong>, which we used to buy essential supplies such as blankets, toiletries, and hygiene products. <strong>Every dollar we raise goes directly toward purchasing these items.</strong></p>
             </div>
-        </main>
+        </section>
 
-        <aside class="right-content">
-            <span class="dashboard-label">Current Impact 2026</span>
-            
-            <div class="impact-card">
-                <p style="margin:0; opacity: 0.7;">Total Funds Raised</p>
-                <h2>$579.00</h2>
-                <img src="https://via.placeholder.com/400x120?text=Revenue+Sankey+Chart" style="width: 100%; margin-top: 20px; opacity: 0.8;" alt="Sankey">
-            </div>
+        <section class="impact-hub">
+            <div class="dashboard-grid">
+                
+                <div class="stat-card reveal">
+                    <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; opacity: 0.5;">Total Raised 2026</p>
+                    <h3>$579.00</h3>
+                    <p style="margin-bottom: 40px;">(as of March 4, 2026)</p>
+                    <img src="https://via.placeholder.com/600x200?text=Revenue+Flow+Diagram" style="width: 100%; border-radius: 20px; opacity: 0.8;" alt="Sankey">
+                </div>
 
-            <div class="nav-grid">
-                <a href="/transparency" class="nav-item">Transparency</a>
-                <a href="/team" class="nav-item">Our Team</a>
-                <a href="/portfolio" class="nav-item">Portfolio</a>
-                <a href="/branch" class="nav-item">Start Branch</a>
-                <a href="/donate" class="nav-item">Donate</a>
-                <a href="/blog" class="nav-item">Blog</a>
+                <div class="nav-grid reveal">
+                    <a href="/transparency" class="nav-item">Transparency</a>
+                    <a href="/team" class="nav-item">Our Team</a>
+                    <a href="/portfolio" class="nav-item">Portfolio</a>
+                    <a href="/start-a-branch" class="nav-item">Start a Branch</a>
+                    <a href="/donate" class="nav-item">Donate</a>
+                    <a href="/blog" class="nav-item">Blog</a>
+                </div>
+
             </div>
 
-            <div style="margin-top: 60px; display: flex; gap: 20px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" style="width: 25px; filter: invert(1); opacity: 0.5;" alt="TikTok">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" style="width: 25px; filter: invert(1); opacity: 0.5;" alt="Instagram">
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="width: 25px; filter: invert(1); opacity: 0.5;" alt="YouTube">
+            <div class="reveal" style="text-align: center; margin-top: 100px;">
+                <h2 style="font-family: 'Abril Fatface', serif; font-size: 2.5rem; color: white;">Join us on Social Media</h2>
+                <div style="margin-top: 40px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" style="width: 40px; margin: 0 20px; filter: invert(1);" alt="TikTok">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" style="width: 40px; margin: 0 20px; filter: invert(1);" alt="Instagram">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="width: 40px; margin: 0 20px; filter: invert(1);" alt="YouTube">
+                </div>
             </div>
-        </aside>
+        </section>
 
     </div>
 
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
 </body>
 </html>
