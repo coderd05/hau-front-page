@@ -11,6 +11,7 @@
             --camp-cream: #F9F6F0;
             --camp-dark: #1A1311;
             --camp-teal: #2D5A68;
+            --white: #ffffff;
         }
 
         body {
@@ -22,227 +23,237 @@
             overflow-x: hidden;
         }
 
+        /* --- BUBBLY POP REVEAL --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(30px) scale(0.96);
+            transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .reveal.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
-        /* --- HERO SECTION --- */
+        /* --- LAYERED HERO --- */
         .hero {
-            padding: 100px 20px 60px;
+            padding: 100px 20px 40px;
             text-align: center;
+            position: relative;
         }
 
-        .logo-box {
+        .logo-bubble {
             display: inline-block;
-            border: 5px solid var(--camp-dark);
-            padding: 40px 60px;
-            background: white;
-            box-shadow: 15px 15px 0px var(--camp-orange);
-            margin-bottom: 20px;
+            background: var(--white);
+            border: 3px solid var(--camp-dark);
+            padding: 50px 70px;
+            border-radius: 60px; /* Bubbly shape */
+            box-shadow: 0 15px 0px var(--camp-orange);
+            position: relative;
+            z-index: 2;
         }
 
-        .logo-box h1 {
+        .logo-bubble h1 {
             font-family: 'Abril Fatface', serif;
-            font-size: clamp(2.2rem, 7vw, 4rem);
+            font-size: clamp(2rem, 6vw, 3.8rem);
             color: var(--camp-teal);
             margin: 0;
         }
 
         .tagline {
             font-family: 'Abril Fatface', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--camp-orange);
             margin-top: 15px;
-            letter-spacing: 1px;
         }
 
-        /* --- ABOUT SECTION --- */
-        .about-section {
-            max-width: 950px;
-            margin: 40px auto;
-            padding: 0 25px;
-            text-align: left; /* Matched to your screenshot */
+        /* --- STACKED ABOUT CARDS --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        .about-section h2 {
+        .bubbly-card {
+            background: var(--white);
+            border: 2px solid var(--camp-dark);
+            border-radius: 40px;
+            padding: 45px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .bubbly-card.orange-tint {
+            background: var(--camp-orange);
+            color: white;
+            border: 3px solid var(--camp-dark);
+        }
+
+        h2 {
             font-family: 'Abril Fatface', serif;
             font-size: 2.8rem;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ddd;
-            display: inline-block;
-            padding-right: 50px;
+            margin-top: 0;
         }
 
-        .about-section p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
-        /* --- IMPACT SECTION --- */
-        .impact-card {
-            background: white;
-            border: 3px solid var(--camp-dark);
-            padding: 40px;
-            margin: 60px auto;
-            max-width: 1000px;
-            box-shadow: 12px 12px 0px var(--camp-dark);
+        /* --- IMPACT DASHBOARD --- */
+        .impact-bubble {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 30px;
+            background: var(--white);
+            border-radius: 50px;
+            border: 3px solid var(--camp-dark);
+            overflow: hidden;
+            box-shadow: 0 15px 0px var(--camp-dark);
+            margin: 60px 0;
         }
 
         .impact-text {
             flex: 1;
+            padding: 50px;
             min-width: 280px;
         }
 
         .impact-text h3 {
             font-family: 'Abril Fatface', serif;
-            font-size: 2.2rem;
-            margin: 5px 0;
+            font-size: 3rem;
+            color: var(--camp-orange);
+            margin: 10px 0;
         }
 
         .impact-visual {
             flex: 1.5;
-            min-width: 350px;
+            background: #fdfdfd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            border-left: 3px solid var(--camp-dark);
         }
 
         .impact-visual img {
             width: 100%;
-            height: auto;
-            border: 1px solid #eee;
+            border-radius: 20px;
         }
 
-        /* --- NAVIGATION GRID --- */
+        /* --- ROUNDED NAV GRID --- */
         .nav-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            max-width: 1100px;
-            margin: 60px auto 100px;
-            padding: 0 20px;
+            margin: 60px 0;
         }
 
-        .nav-card {
-            background: white;
+        .nav-bubble {
+            background: var(--white);
             border: 2px solid var(--camp-dark);
-            padding: 25px;
+            border-radius: 35px;
+            padding: 35px;
             text-align: center;
             text-decoration: none;
             color: inherit;
-            box-shadow: 8px 8px 0px var(--camp-orange);
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 0px var(--camp-orange);
         }
 
-        .nav-card:hover {
-            box-shadow: 12px 12px 0px var(--camp-dark);
-            transform: translate(-3px, -3px);
+        .nav-bubble:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 0px var(--camp-dark);
         }
 
-        .nav-card h3 {
+        .nav-bubble h3 {
             font-family: 'Abril Fatface', serif;
-            font-size: 1.4rem;
-            margin: 0 0 10px;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
             text-decoration: underline;
         }
 
-        .nav-card p {
-            font-size: 0.85rem;
-            margin: 0;
-        }
-
+        /* --- FOOTER PILL --- */
         footer {
-            padding: 80px 20px;
+            margin: 100px 20px 40px;
+            background: var(--camp-dark);
+            color: white;
+            padding: 60px;
+            border-radius: 60px;
             text-align: center;
-            border-top: 4px solid var(--camp-dark);
-            background: white;
-        }
-
-        footer h2 {
-            font-family: 'Abril Fatface', serif;
-            font-size: 2rem;
-            margin-bottom: 30px;
         }
 
         .social-icons img {
-            width: 35px;
-            margin: 0 15px;
+            width: 45px;
+            margin: 0 20px;
+            filter: invert(1);
         }
 
-        @media (max-width: 850px) {
-            .nav-grid { grid-template-columns: 1fr; }
-            .impact-card { flex-direction: column; text-align: center; }
+        @media (max-width: 768px) {
+            .impact-bubble { border-radius: 30px; }
+            .impact-visual { border-left: none; border-top: 3px solid var(--camp-dark); }
+            .logo-bubble { padding: 30px; border-radius: 40px; }
         }
     </style>
 </head>
 <body>
 
     <section class="hero reveal">
-        <div class="logo-box">
+        <div class="logo-bubble">
             <h1>Advocacy for the Unhoused, Inc.</h1>
             <div class="tagline">Advocacy | Awareness | Action</div>
         </div>
     </section>
 
-    <section class="about-section reveal">
-        <h2>About</h2>
-        <p>Advocacy for the Unhoused is a federally recognized 501(c)(3) nonprofit organization and student-led initiative dedicated to supporting unhoused individuals across Massachusetts by donating supplies and building awareness about the problem. Founded in 2025 as a small school club, we have grown into a federally-recognized organization with multiple branches and a team of over 50 committed volunteers who believe that housing should be accessible to everyone.</p>
-        
-        <p>We recognize that homelessness is rarely the result of a single event. Rising rent, inflation, medical bills, and the general cost of living continue to climb while wages remain stagnant. Many people are pushed into impossible situations where even working multiple jobs is not enough to stay housed. Our work is grounded in the belief that no one should face these pressures alone, and that communities have a responsibility to support those most affected by economic instability.</p>
+    <div class="container">
+        <div class="bubbly-card reveal">
+            <h2>About</h2>
+            <p>Advocacy for the Unhoused is a federally recognized 501(c)(3) nonprofit organization and student-led initiative dedicated to supporting unhoused individuals across Massachusetts by donating supplies and building awareness about the problem. Founded in 2025 as a small school club, we have grown into a federally-recognized organization with multiple branches and a team of over 50 committed volunteers who believe that housing should be accessible to everyone.</p>
+        </div>
 
-        <p>In our first year, we raised more than $1,000, which we used to buy essential supplies such as blankets, toiletries, and hygiene products. <strong>Every dollar we raise goes directly toward purchasing these items.</strong> All operational costs are covered separately, allowing us to maintain complete financial transparency. To strengthen trust with our donors, we built a custom web app that uses Unique Donation Identifiers to show exactly how each contribution is used. We also publish detailed breakdowns of funds raised and supplies distributed, because accountability is one of our core values. For all financial info, please visit our transparency page.</p>
+        <div class="bubbly-card reveal">
+            <p>We recognize that homelessness is rarely the result of a single event. Rising rent, inflation, medical bills, and the general cost of living continue to climb while wages remain stagnant. Many people are pushed into impossible situations where even working multiple jobs is not enough to stay housed. Our work is grounded in the belief that no one should face these pressures alone, and that communities have a responsibility to support those most affected by economic instability.</p>
+        </div>
 
-        <p>Our mission is simple: bring people together to support those who need it most, while empowering the next generation of leaders to take action in their communities. Through Advocacy, Awareness, and Action, we aim to make homelessness a problem of the past.</p>
-    </section>
+        <div class="bubbly-card orange-tint reveal">
+            <p>In our first year, we raised more than $1,000, which we used to buy essential supplies such as blankets, toiletries, and hygiene products. <strong>Every dollar we raise goes directly toward purchasing these items.</strong> All operational costs are covered separately, allowing us to maintain complete financial transparency.</p>
+        </div>
 
-    <div class="container reveal">
-        <div class="impact-card">
+        <div class="impact-bubble reveal">
             <div class="impact-text">
                 <p>This year, we have raised</p>
                 <h3>$579 dollars</h3>
                 <p>(as of March 4, 2026)</p>
             </div>
             <div class="impact-visual">
-                <img src="https://via.placeholder.com/600x180?text=Revenue+Breakdown+Diagram" alt="Branch Revenue Diagram">
+                <img src="https://via.placeholder.com/600x200?text=Branch+Revenue+Chart" alt="Revenue">
             </div>
+        </div>
+
+        <div class="nav-grid">
+            <a href="#" class="nav-bubble reveal">
+                <h3>Transperancy</h3>
+                <p>How we uphold our commitment to donate every single dollar</p>
+            </a>
+            <a href="#" class="nav-bubble reveal">
+                <h3>Our Team</h3>
+                <p>Meet our 50+ volunteers commited to ending homelessness</p>
+            </a>
+            <a href="#" class="nav-bubble reveal">
+                <h3>Project Portfolio</h3>
+                <p>Learn about our past events</p>
+            </a>
+            <a href="#" class="nav-bubble reveal">
+                <h3>Start a Branch</h3>
+                <p>Get involved: We are looking for highschool aged students to start branches in the new england area</p>
+            </a>
+            <a href="#" class="nav-bubble reveal">
+                <h3>Donate</h3>
+                <p>Join the fight to end homelessness and find ways to give</p>
+            </a>
+            <a href="#" class="nav-bubble reveal">
+                <h3>Blog</h3>
+                <p>Our Impact on unhoused individuals</p>
+            </a>
         </div>
     </div>
 
-    <section class="nav-grid">
-        <a href="#" class="nav-card reveal">
-            <h3>Transperancy</h3> <p>How we uphold our commitment to donate every single dollar</p>
-        </a>
-        <a href="#" class="nav-card reveal">
-            <h3>Our Team</h3>
-            <p>Meet our 50+ volunteers commited to ending homelessness</p>
-        </a>
-        <a href="#" class="nav-card reveal">
-            <h3>Project Portfolio</h3>
-            <p>Learn about our past events</p>
-        </a>
-        <a href="#" class="nav-card reveal">
-            <h3>Start a Branch</h3>
-            <p>Get involved: We are looking for highschool aged students to start branches in the new england area</p>
-        </a>
-        <a href="#" class="nav-card reveal">
-            <h3>Donate</h3>
-            <p>Join the fight to end homelessness and find ways to give</p>
-        </a>
-        <a href="#" class="nav-card reveal">
-            <h3>Blog</h3>
-            <p>Our Impact on unhoused individuals</p>
-        </a>
-    </section>
-
-    <footer>
+    <footer class="reveal">
         <h2>Join us on Social Media</h2>
         <div class="social-icons">
             <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
@@ -257,7 +268,7 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 80) {
+                if (elementTop < windowHeight - 50) {
                     reveals[i].classList.add("active");
                 }
             }
@@ -265,6 +276,5 @@
         window.addEventListener("scroll", reveal);
         reveal();
     </script>
-
 </body>
 </html>
